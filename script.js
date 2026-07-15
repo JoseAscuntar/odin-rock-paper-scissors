@@ -1,3 +1,5 @@
+const GAMES_PER_ROUND = 5;
+
 function getComputerChoice(){
     let random = Math.floor(Math.random() * 3);
     switch(random) {
@@ -46,6 +48,30 @@ function playGame(humanChoice, computerChoice) {
     }
 }
 
-console.log(playGame(getHumanChoice(), getComputerChoice()));
+function playRound() {
+    for (let i = 0; i < GAMES_PER_ROUND; i++) {
+        console.log(playGame(getHumanChoice(), getComputerChoice()));
+    }
+    if (humanScore > computerScore) {
+        let tempHuman = humanScore;
+        let tempComputer = computerScore;
+        humanScore = 0;
+        computerScore = 0;
+        return "YOU WON THE ROUND! you won " + tempHuman + " game" + (tempHuman == 1 ? "" : "s") + ", while the computer won " + tempComputer + ".";   
+    } else if (humanScore < computerScore) {
+        let tempHuman = humanScore;
+        let tempComputer = computerScore;
+        humanScore = 0;
+        computerScore = 0;
+        return "You LOST the round! you won " + tempHuman + " game" + (tempHuman == 1 ? "" : "s") + ", while the computer won " + tempComputer+ "."; 
+    } else {
+        let tempScore = humanScore;
+        humanScore = 0;
+        computerScore = 0;
+        return "You TIED the round! you each won " + tempScore + " game" + (tempScore == 1 ? "" : "s") + ".";
+    }
+}
+
+console.log(playRound());
 
 
