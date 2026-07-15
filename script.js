@@ -19,5 +19,28 @@ function getHumanChoice() {
     return prompt("Rock, Paper or Scissors?");
 }
 
-console.log(getHumanChoice());
-console.log(getComputerChoice());
+let humanScore = 0;
+let computerScore = 0;
+
+function playGame(humanChoice, computerChoice) {
+    let humanWon = false;
+    if ((humanChoice == "Rock" && computerChoice == "Scissors") 
+     || (humanChoice == "Scissors" && computerChoice == "Paper")
+     || (humanChoice == "Paper" && computerChoice == "Rock")) {
+        humanWon = true;
+     } 
+
+    if (humanChoice == computerChoice) {
+        return "You tied! You both got " + humanChoice + ".";
+    } else if (humanWon) {
+        humanScore++;
+        return "You won! " + humanChoice + " beats " + computerChoice + ".";
+    } else {
+        computerScore++;
+        return "You lose! " + computerChoice + " beats " + humanChoice + ".";
+    }
+}
+
+console.log(playGame(getHumanChoice(), getComputerChoice()));
+
+
