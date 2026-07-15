@@ -23,21 +23,26 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playGame(humanChoice, computerChoice) {
+    let humanChoiceCap = humanChoice.at(0).toUpperCase();
+    for (let i = 1; i < humanChoice.length; i++) {
+        humanChoiceCap += humanChoice.at(i).toLowerCase();
+    }
+
     let humanWon = false;
-    if ((humanChoice == "Rock" && computerChoice == "Scissors") 
-     || (humanChoice == "Scissors" && computerChoice == "Paper")
-     || (humanChoice == "Paper" && computerChoice == "Rock")) {
+    if ((humanChoiceCap == "Rock" && computerChoice == "Scissors") 
+     || (humanChoiceCap == "Scissors" && computerChoice == "Paper")
+     || (humanChoiceCap == "Paper" && computerChoice == "Rock")) {
         humanWon = true;
      } 
 
-    if (humanChoice == computerChoice) {
-        return "You tied! You both got " + humanChoice + ".";
+    if (humanChoiceCap == computerChoice) {
+        return "You tied! You both got " + humanChoiceCap + ".";
     } else if (humanWon) {
         humanScore++;
-        return "You won! " + humanChoice + " beats " + computerChoice + ".";
+        return "You won! " + humanChoiceCap + " beats " + computerChoice + ".";
     } else {
         computerScore++;
-        return "You lose! " + computerChoice + " beats " + humanChoice + ".";
+        return "You lose! " + computerChoice + " beats " + humanChoiceCap + ".";
     }
 }
 
