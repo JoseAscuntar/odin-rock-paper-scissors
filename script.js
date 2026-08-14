@@ -1,4 +1,4 @@
-const GAMES_PER_ROUND = 5;
+const ROUNDS_PER_GAME = 5;
 
 function getComputerChoice(){
     let random = Math.floor(Math.random() * 3);
@@ -24,7 +24,7 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-function playGame(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
     let humanChoiceCap = humanChoice.at(0).toUpperCase();
     for (let i = 1; i < humanChoice.length; i++) {
         humanChoiceCap += humanChoice.at(i).toLowerCase();
@@ -48,30 +48,30 @@ function playGame(humanChoice, computerChoice) {
     }
 }
 
-function playRound() {
-    for (let i = 0; i < GAMES_PER_ROUND; i++) {
-        console.log(playGame(getHumanChoice(), getComputerChoice()));
+function playGame() {
+    for (let i = 0; i < ROUNDS_PER_GAME; i++) {
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
     }
     if (humanScore > computerScore) {
         let tempHuman = humanScore;
         let tempComputer = computerScore;
         humanScore = 0;
         computerScore = 0;
-        return "YOU WON THE ROUND! you won " + tempHuman + " game" + (tempHuman == 1 ? "" : "s") + ", while the computer won " + tempComputer + ".";   
+        return "YOU WON THE GAME! you won " + tempHuman + " round" + (tempHuman == 1 ? "" : "s") + ", while the computer won " + tempComputer + ".";   
     } else if (humanScore < computerScore) {
         let tempHuman = humanScore;
         let tempComputer = computerScore;
         humanScore = 0;
         computerScore = 0;
-        return "You LOST the round! you won " + tempHuman + " game" + (tempHuman == 1 ? "" : "s") + ", while the computer won " + tempComputer+ "."; 
+        return "You LOST the game! you won " + tempHuman + " round" + (tempHuman == 1 ? "" : "s") + ", while the computer won " + tempComputer+ "."; 
     } else {
         let tempScore = humanScore;
         humanScore = 0;
         computerScore = 0;
-        return "You TIED the round! you each won " + tempScore + " game" + (tempScore == 1 ? "" : "s") + ".";
+        return "You TIED the game! you each won " + tempScore + " round" + (tempScore == 1 ? "" : "s") + ".";
     }
 }
 
-console.log(playRound());
+console.log(playGame());
 
 
