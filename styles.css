@@ -39,3 +39,17 @@ h2 {
 #results li {
     text-align: center;
 }
+
+.hidden {
+    display: none !important;
+    margin: 0 !important;
+}
+
+.bigResult {
+    font-size: 100px;
+    text-align: center;
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

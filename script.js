@@ -21,6 +21,8 @@ let humanChoice = "";
 let computerChoice = "";
 const results = document.querySelector("#results")
 const buttons = document.querySelectorAll(".image")
+let humanScore = 0;
+let computerScore = 0;
 
 buttons.forEach(button => {
     button.addEventListener("click", () => playRound(button.id, getComputerChoice()))
@@ -42,10 +44,33 @@ function playRound(humanChoice, computerChoice) {
     } else if (humanWon) {
         result.textContent = "You won! " + humanChoice + " beats " + computerChoice + ".";
         result.style.backgroundColor = "#CAEACE";
+        humanScore++;
     } else {
         result.textContent = "You lose! " + computerChoice + " beats " + humanChoice + ".";
         result.style.backgroundColor = "#FAB8BA";
+        computerScore++;
     }
     results.appendChild(result)
+
+    // This is the new equivalent of playGame()
+    const all = document.querySelectorAll("body *");
+    const background = document.querySelector("*");
+    if (humanScore >= 5 || computerScore >= 5) {
+        all.forEach(element => {
+            element.classList.toggle("hidden");
+        });
+        const bigResult = document.createElement("div");
+        bigResult.classList.add("bigResult");
+        if(humanScore >= 5) {
+            bigResult.textContent = "You Won!";
+            background.style.backgroundColor = "#CAEACE"
+        }
+        else {
+            bigResult.textContent = "You Lost!";
+            background.style.backgroundColor = "#FAB8BA"
+        }
+        const body = document.querySelector("body");
+        body.appendChild(bigResult);
+    }
 }
 
