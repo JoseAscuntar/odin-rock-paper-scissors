@@ -4,74 +4,44 @@ function getComputerChoice(){
     let random = Math.floor(Math.random() * 3);
     switch(random) {
         case 0:
-            return "Rock";
+            return "rock";
             break;
         
         case 1:
-            return "Paper";
+            return "paper";
             break;
 
         case 2:
-            return "Scissors";
+            return "scissors";
             break;
     }
 }
 
-function getHumanChoice() {
-    return prompt("Rock, Paper or Scissors?");
-}
+let humanChoice = "";
+let computerChoice = "";
+const results = document.querySelector("#results")
+const buttons = document.querySelectorAll(".image")
 
-let humanScore = 0;
-let computerScore = 0;
+buttons.forEach(button => {
+    button.addEventListener("click", () => playRound(button.id, getComputerChoice()))
+})
 
 function playRound(humanChoice, computerChoice) {
-    let humanChoiceCap = humanChoice.at(0).toUpperCase();
-    for (let i = 1; i < humanChoice.length; i++) {
-        humanChoiceCap += humanChoice.at(i).toLowerCase();
-    }
-
     let humanWon = false;
-    if ((humanChoiceCap == "Rock" && computerChoice == "Scissors") 
-     || (humanChoiceCap == "Scissors" && computerChoice == "Paper")
-     || (humanChoiceCap == "Paper" && computerChoice == "Rock")) {
+    if ((humanChoice == "rock" && computerChoice == "scissors") 
+     || (humanChoice == "scissors" && computerChoice == "paper")
+     || (humanChoice == "paper" && computerChoice == "rock")) {
         humanWon = true;
-     } 
+    } 
 
-    if (humanChoiceCap == computerChoice) {
-        return "You tied! You both got " + humanChoiceCap + ".";
+    const result = document.createElement("li")
+    if (humanChoice == computerChoice) {
+        result.textContent = "You tied! You both got " + humanChoice + ".";
     } else if (humanWon) {
-        humanScore++;
-        return "You won! " + humanChoiceCap + " beats " + computerChoice + ".";
+        result.textContent = "You won! " + humanChoice + " beats " + computerChoice + ".";
     } else {
-        computerScore++;
-        return "You lose! " + computerChoice + " beats " + humanChoiceCap + ".";
+        result.textContent = "You lose! " + computerChoice + " beats " + humanChoice + ".";
     }
+    results.appendChild(result)
 }
-
-function playGame() {
-    for (let i = 0; i < ROUNDS_PER_GAME; i++) {
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-    }
-    if (humanScore > computerScore) {
-        let tempHuman = humanScore;
-        let tempComputer = computerScore;
-        humanScore = 0;
-        computerScore = 0;
-        return "YOU WON THE GAME! you won " + tempHuman + " round" + (tempHuman == 1 ? "" : "s") + ", while the computer won " + tempComputer + ".";   
-    } else if (humanScore < computerScore) {
-        let tempHuman = humanScore;
-        let tempComputer = computerScore;
-        humanScore = 0;
-        computerScore = 0;
-        return "You LOST the game! you won " + tempHuman + " round" + (tempHuman == 1 ? "" : "s") + ", while the computer won " + tempComputer+ "."; 
-    } else {
-        let tempScore = humanScore;
-        humanScore = 0;
-        computerScore = 0;
-        return "You TIED the game! you each won " + tempScore + " round" + (tempScore == 1 ? "" : "s") + ".";
-    }
-}
-
-// console.log(playGame());
-
 
