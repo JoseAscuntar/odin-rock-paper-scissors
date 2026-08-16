@@ -35,12 +35,16 @@ function playRound(humanChoice, computerChoice) {
     } 
 
     const result = document.createElement("li")
+    result.style.listStyle = "none";
     if (humanChoice == computerChoice) {
         result.textContent = "You tied! You both got " + humanChoice + ".";
+        result.style.backgroundColor = "#FFF9C4";
     } else if (humanWon) {
         result.textContent = "You won! " + humanChoice + " beats " + computerChoice + ".";
+        result.style.backgroundColor = "#CAEACE";
     } else {
         result.textContent = "You lose! " + computerChoice + " beats " + humanChoice + ".";
+        result.style.backgroundColor = "#FAB8BA";
     }
     results.appendChild(result)
 }

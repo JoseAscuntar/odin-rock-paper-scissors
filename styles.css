@@ -24,3 +24,11 @@ h1 {
     display: flex;
     justify-content: space-evenly;
 }
+
+#results {
+    padding: 0 40%;
+}
+
+#results li {
+    text-align: center;
+}
