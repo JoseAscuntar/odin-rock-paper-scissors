@@ -33,15 +33,28 @@ h2 {
     margin: 100px 0;
 }
 
+#section2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20%;
+}
+
+#humanChoice,
+#computerChoice{
+    font-size: 100px;
+    width: 100px;
+}
+
 #results {
     font-size: large;
     text-align: center;
     background-color: aliceblue;
-    margin: 0 30%;
     border: solid black 2.5px;
     border-radius: 6px;
     padding: 10px;
     padding-bottom: 0;
+    width: 500px;
     height: 100px;
     overflow: auto /* Wow, overflow is super useful */
 }

@@ -1,5 +1,19 @@
 const ROUNDS_PER_GAME = 5;
 
+function toEmoji(choice) {
+    switch (choice) {
+        case "rock":
+            return "&#x1faa8;";
+            break;
+        case "paper":
+            return "&#128196;";
+            break;
+        case "scissors":
+            return "&#x2702;&#xFE0F;";
+            break;
+    }
+}
+
 function getComputerChoice(){
     let random = Math.floor(Math.random() * 3);
     switch(random) {
@@ -17,8 +31,8 @@ function getComputerChoice(){
     }
 }
 
-let humanChoice = "";
-let computerChoice = "";
+const humanChoiceEmoji = document.querySelector("#humanChoice");
+const computerChoiceEmoji = document.querySelector("#computerChoice");
 const results = document.querySelector("#results")
 const buttons = document.querySelectorAll(".image")
 let humanScore = 0;
@@ -28,14 +42,19 @@ buttons.forEach(button => {
     button.addEventListener("click", () => playRound(button.id, getComputerChoice()))
     button.addEventListener("mouseover", () => {
         button.style.transform = "scale(1.1)"; // I'm not supposed to know this yet, but I've been investigating.
+        humanChoiceEmoji.innerHTML = toEmoji(button.id)
         console.log(button.id)
     })
     button.addEventListener("mouseout", () => {
+        humanChoiceEmoji.innerHTML = "";
         button.style.transform = "scale(1)";
     })
 })
 
 function playRound(humanChoice, computerChoice) {
+    humanChoiceEmoji.innerHTML = toEmoji(humanChoice);
+    computerChoiceEmoji.innerHTML = toEmoji(computerChoice);
+    
     let humanWon = false;
     if ((humanChoice == "rock" && computerChoice == "scissors") 
      || (humanChoice == "scissors" && computerChoice == "paper")
