@@ -33,8 +33,8 @@ function getComputerChoice(){
 
 const humanChoiceEmoji = document.querySelector("#humanChoice");
 const computerChoiceEmoji = document.querySelector("#computerChoice");
-const results = document.querySelector("#results")
-const buttons = document.querySelectorAll(".image")
+const results = document.querySelector("#results");
+const buttons = document.querySelectorAll(".image");
 let humanScore = 0;
 let computerScore = 0;
 
@@ -42,8 +42,7 @@ buttons.forEach(button => {
     button.addEventListener("click", () => playRound(button.id, getComputerChoice()))
     button.addEventListener("mouseover", () => {
         button.style.transform = "scale(1.1)"; // I'm not supposed to know this yet, but I've been investigating.
-        humanChoiceEmoji.innerHTML = toEmoji(button.id)
-        console.log(button.id)
+        humanChoiceEmoji.innerHTML = toEmoji(button.id);
     })
     button.addEventListener("mouseout", () => {
         humanChoiceEmoji.innerHTML = "";
@@ -96,16 +95,16 @@ function playRound(humanChoice, computerChoice) {
 
         const playAgain = document.createElement("button")
         playAgain.textContent = "Play Again";
-        playAgain.addEventListener("click", () => location.reload())
+        playAgain.addEventListener("click", () => location.reload());
         
 
         if(humanScore >= 5) {
             bigResult.textContent = "You Won!";
-            background.style.backgroundColor = "#CAEACE"
+            background.style.backgroundColor = "#CAEACE";
         }
         else {
             bigResult.textContent = "You Lost!";
-            background.style.backgroundColor = "#FAB8BA"
+            background.style.backgroundColor = "#FAB8BA";
         }
 
         const body = document.querySelector("body");
