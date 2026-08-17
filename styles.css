@@ -50,6 +50,12 @@ h2 {
     text-align: center;
     height: 98vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.bigResult button{
+    background-color: white;
+    font-size: large;
 }

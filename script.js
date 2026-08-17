@@ -61,6 +61,12 @@ function playRound(humanChoice, computerChoice) {
         });
         const bigResult = document.createElement("div");
         bigResult.classList.add("bigResult");
+
+        const playAgain = document.createElement("button")
+        playAgain.textContent = "Play Again";
+        playAgain.addEventListener("click", () => location.reload())
+        
+
         if(humanScore >= 5) {
             bigResult.textContent = "You Won!";
             background.style.backgroundColor = "#CAEACE"
@@ -69,8 +75,10 @@ function playRound(humanChoice, computerChoice) {
             bigResult.textContent = "You Lost!";
             background.style.backgroundColor = "#FAB8BA"
         }
+
         const body = document.querySelector("body");
         body.appendChild(bigResult);
+        bigResult.appendChild(playAgain);
     }
 }
 
