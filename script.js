@@ -26,6 +26,13 @@ let computerScore = 0;
 
 buttons.forEach(button => {
     button.addEventListener("click", () => playRound(button.id, getComputerChoice()))
+    button.addEventListener("mouseover", () => {
+        button.style.transform = "scale(1.1)"; // I'm not supposed to know this yet, but I've been investigating.
+        console.log(button.id)
+    })
+    button.addEventListener("mouseout", () => {
+        button.style.transform = "scale(1)";
+    })
 })
 
 function playRound(humanChoice, computerChoice) {
