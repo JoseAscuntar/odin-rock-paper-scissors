@@ -34,11 +34,16 @@ h2 {
 }
 
 #results {
-    padding: 0 40%;
-}
-
-#results li {
+    font-size: large;
     text-align: center;
+    background-color: aliceblue;
+    margin: 0 30%;
+    border: solid black 2.5px;
+    border-radius: 6px;
+    padding: 10px;
+    padding-bottom: 0;
+    height: 100px;
+    overflow: auto /* Wow, overflow is super useful */
 }
 
 .hidden {
