@@ -78,6 +78,12 @@ function playRound(humanChoice, computerChoice) {
     }
     results.appendChild(result)
 
+    humanScoreEmoji = document.querySelector("#humanScore");
+    computerScoreEmoji = document.querySelector("#computerScore");
+
+    humanScoreEmoji.innerHTML = "&#x1F9D1; " + humanScore;
+    computerScoreEmoji.innerHTML = computerScore + " &#129302;"; 
+
     // This is the new equivalent of playGame()
     const all = document.querySelectorAll("body *");
     const background = document.querySelector("*");

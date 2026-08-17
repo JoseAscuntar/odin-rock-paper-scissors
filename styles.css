@@ -1,3 +1,20 @@
+#section1,
+#section3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#section1{
+    margin: 0 10%;
+}
+
+#humanScore,
+#computerScore {
+    font-size: 100px;
+    width: 200px;
+}
+
 h1 {
     font-size: 60px;
     font-weight: 500;
@@ -33,10 +50,7 @@ h2 {
     margin: 100px 0;
 }
 
-#section2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#section3{
     margin: 0 20%;
 }
 
