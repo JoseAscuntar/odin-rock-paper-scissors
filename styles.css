@@ -11,8 +11,8 @@
 
 #humanScore,
 #computerScore {
-    font-size: 100px;
-    width: 200px;
+    font-size: 5vw;
+    width: 10vw;
 }
 
 h1 {
@@ -28,8 +28,8 @@ h2 {
 }
 
 .image {
-    width: 500px;
-    height: 500px;
+    width: 22vw;
+    height: 22vw;
     overflow: hidden;
 }
 
